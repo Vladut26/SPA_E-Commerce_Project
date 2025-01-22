@@ -1,2 +1,2 @@
-# SPA_Project
-This is a project for the 
+# Single_Page_Application_Project
+This is a project for the Web Technologies subject studied at the university. More details about it are coming... 
