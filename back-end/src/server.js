@@ -4,11 +4,35 @@ import path from 'path'
 import { fileURLToPath } from 'url';
 import cors from 'cors';
 
+import { firebaseConfig } from './firebase.js';
+import { collection, getDocs, doc, setDoc,addDoc } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+
+const databaseApp = initializeApp(firebaseConfig);
+const firestoreDB=getFirestore(databaseApp);
 
 const app = express();
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(cors());
+
+const seedProducts = async () => {
+    try {
+        for (const product of products) {
+            const productDocRef = collection(firestoreDB, 'products');              
+            await addDoc(productDocRef, product);
+            console.log(`Product added: ${product.name}`);    
+        }
+        console.log('All products uploaded successfully!');
+    } catch (error) {
+        console.error('Error uploading products:', error);
+    }
+};
+
+seedProducts();
+
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
