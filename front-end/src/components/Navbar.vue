@@ -5,10 +5,15 @@
           <img :src="logo" />
         </div>
       </router-link>
-      <router-link to="/cart" class="cart-link">
-        <button>Shopping Cart</button>
-      </router-link>
-    </div>
+      <div class="navbar-links">
+        <router-link to="/login" class="myaccount-link">
+          <button>My Account</button>
+        </router-link>
+        <router-link to="/cart" class="cart-link">
+         <button>Shopping Cart</button>
+        </router-link>
+      </div>
+     </div>
   </template>
   
   <script>

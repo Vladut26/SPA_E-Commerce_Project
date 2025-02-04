@@ -6,6 +6,8 @@ import ShoppingCartPage from './views/ShoppingCartPage.vue';
 import ProductsPage from './views/ProductsPage.vue';
 import ProductDetailPage from './views/ProductDetailPage.vue';
 import NotFoundPage from './views/NotFoundPage.vue';
+import LoginPage from './views/LoginPage.vue';
+import RegisterPage from './views/RegisterPage.vue';
 
 createApp(App)
 .use(VueRouter.createRouter({
@@ -19,6 +21,12 @@ createApp(App)
     },{
         path: '/products/:productId',
         component: ProductDetailPage
+    },{
+        path: '/login',
+        component: LoginPage
+    },{
+        path: '/register',
+        component: RegisterPage
     },{
         path: '/:pathMatch(.*)*',
         component: NotFoundPage
